@@ -164,6 +164,7 @@ GEM
     reline (0.3.1)
       io-console (~> 0.5)
     rexml (3.2.5)
+    rmagick (4.2.4)
     rubocop (1.26.0)
       parallel (~> 1.10)
       parser (>= 3.1.0.0)
@@ -224,6 +225,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails
+  rmagick
   rubocop
   rubocop-rails
   sprockets-rails
