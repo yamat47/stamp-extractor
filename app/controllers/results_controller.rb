@@ -25,7 +25,9 @@ class ResultsController < ApplicationController
     redirect_to result_path(id)
   end
 
-  def show; end
+  def show
+    @id = params[:id]
+  end
 
   private
 
