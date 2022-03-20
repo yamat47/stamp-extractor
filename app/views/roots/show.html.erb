@@ -1,0 +1,4 @@
+<%= form_with url: results_path, local: true do |form| %>
+  <%= form.file_field :image, required: true, accept: 'image/*' %>
+  <%= form.submit %>
+<% end %>
