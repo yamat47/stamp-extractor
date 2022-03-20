@@ -18,7 +18,11 @@ class ResultsController < ApplicationController
 
     after.format = 'png'
 
-    File.open('tmp/output.png', 'wb') { |f| f.write(after.to_blob) }
+    id = SecureRandom.uuid
+
+    File.open("tmp/#{id}.png", 'wb') { |f| f.write(after.to_blob) }
+
+    redirect_to result_path(id)
   end
 
   def show; end
