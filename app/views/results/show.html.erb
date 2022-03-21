@@ -1,2 +1,6 @@
+<% content_for :canonical do %>
+  <link rel='canonical' href='https://stamp-extractor.herokuapp.com/results/<%= @id %>' >
+<% end %>
+
 <%= image_tag temporary_image_path("#{@id}.png") %>
 <%= image_tag temporary_image_path("#{@id}.svg") %>

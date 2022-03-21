@@ -1,3 +1,7 @@
+<% content_for :canonical do %>
+  <link rel='canonical' href='https://stamp-extractor.herokuapp.com/' >
+<% end %>
+
 <%= form_with url: results_path, local: true do |form| %>
   <%= form.file_field :image, required: true, accept: 'image/*' %>
   <%= form.submit %>
