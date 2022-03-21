@@ -1,2 +1,35 @@
-<%= image_tag temporary_image_path("#{@id}.png") %>
-<%= image_tag temporary_image_path("#{@id}.svg") %>
+<% content_for :canonical do %>
+  <link rel='canonical' href='https://stamp-extractor.herokuapp.com/results/<%= @id %>' >
+<% end %>
+
+<h1 class='mb-24 text-5xl font-bold text-center'>お待たせしました！</h1>
+
+<dl class='flex justify-center'>
+  <section class='w-60 mr-8'>
+    <dt class='mb-4 text-center text-xl font-bold'>
+      背景透過画像
+    </dt>
+    <dd>
+      <%= image_tag temporary_image_path("#{@id}.png") %>
+    </dd>
+  </section>
+  <section class='w-60'>
+    <dt class='mb-4 text-center text-xl font-bold'>
+      SVG形式の画像
+    </dt>
+    <dd>
+      <%= image_tag temporary_image_path("#{@id}.svg") %>
+    </dd>
+  </section>
+</dl>
+
+
+<%= form_with url: results_path, local: true, class: 'mt-16 flex items-center' do |form| %>
+  <%= form.file_field(
+        :image,
+        required: true,
+        accept: 'image/*',
+        class: 'h-10 grow border-2 border-slate-600 bg-white file:h-full file:bg-slate-600 file:border-0 file:px-4 file:mr-3 file:text-white file:font-bold hover:file:bg-slate-500'
+      ) %>
+  <%= form.submit value: 'もう一度生成', class: 'bg-slate-600 text-white h-10 px-5 font-bold hover:bg-slate-500 hover:cursor-pointer' %>
+<% end %>

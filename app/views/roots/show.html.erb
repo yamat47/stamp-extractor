@@ -1,4 +1,33 @@
-<%= form_with url: results_path, local: true do |form| %>
-  <%= form.file_field :image, required: true, accept: 'image/*' %>
-  <%= form.submit %>
+<% content_for :canonical do %>
+  <link rel='canonical' href='https://stamp-extractor.herokuapp.com/' >
 <% end %>
+
+<h1 class='mb-24 text-5xl font-bold text-center'>Stamp Extractor</h1>
+
+<p class='mb-8'>
+  押されたハンコや手書きのイラストを元に、背景を透過した画像やSVG形式の画像を生成します。
+</p>
+
+<p class='mb-8'>
+  アップロードされた画像は一時的にサーバーに保存してありますが、再起動のたびに消しています。
+  <br/>
+  永続化しているわけではないため、ファイル共有などの用途には適していません。
+</p>
+
+<%= form_with url: results_path, local: true, class: 'mt-16 flex items-center' do |form| %>
+  <%= form.file_field(
+        :image,
+        required: true,
+        accept: 'image/*',
+        class: 'h-10 grow border-2 border-slate-600 bg-white file:h-full file:bg-slate-600 file:border-0 file:px-4 file:mr-3 file:text-white file:font-bold hover:file:bg-slate-500'
+      ) %>
+  <%= form.submit value: '生成', class: 'bg-slate-600 text-white h-10 px-5 font-bold hover:bg-slate-500 hover:cursor-pointer' %>
+<% end %>
+
+<p class='mt-16'>
+  本プログラムは <%= link_to '@yamat47', 'https://twitter.com/yamat47', class: 'underline hover:cursor-pointer', target: '_blank', rel: 'noopener' %> が管理しています。
+  <br/>
+  本プログラムを利用したことで発生したすべての事柄において、作成者は一切の責任を負いかねます。
+  <br/>
+  くれぐれも自己責任の範囲でご利用ください。
+</p>
