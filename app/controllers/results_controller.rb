@@ -18,9 +18,17 @@ class ResultsController < ApplicationController
 
     after.format = 'png'
 
+    pnm = after.clone
+    background = Magick::Image.new(after.columns, after.rows) { |image| image.background_color = 'white' }
+    pnm = background.composite(pnm, Magick::CenterGravity, Magick::OverCompositeOp)
+    pnm.format = 'pnm'
+
     id = SecureRandom.uuid
 
     File.open("tmp/#{id}.png", 'wb') { |f| f.write(after.to_blob) }
+    File.open("tmp/#{id}.pnm", 'wb') { |f| f.write(pnm.to_blob) }
+
+    system("potrace -s -o #{Rails.root}/tmp/#{id}.svg #{Rails.root}/tmp/#{id}.pnm")
 
     redirect_to result_path(id)
   end
