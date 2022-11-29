@@ -1,24 +1,8 @@
-# README
+# Stamp Extractor
+## デモンストレーション
+[ここ](https://stamp-extractor.fly.dev/) から実際に稼働しているアプリにアクセスできます。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## これはなに？
+紙に押された印影画像をアップロードすると、印影部分だけを切り取って PNG や SVG 形式の画像に変換をするアプリです。
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+実験的な実装を試すのが主目的です。デモンストレーションの環境は限りなくパワーが弱いので、大量に使われたりすると処理に時間がかかってしまうかもしれません。
